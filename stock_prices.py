@@ -16,6 +16,10 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 
 
 SOLUTION:
+1. Initialize `min_price` to the first price in the array and `max_profit` to 0.
+2. Iterate over the array and for each day:
+    * If the current price is less than `min_price`, update `min_price` and reset `max_profit` to 0.
+    * Otherwise, calculate the potential profit by subtracting `min_price` from the current price and update `max_profit` if the new profit is higher.
 """
 def max_profit(prices):
     min_price = prices[0]
