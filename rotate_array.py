@@ -21,7 +21,7 @@ def rotate(nums, k):
        r = len(nums) - k
        new=nums[0:r]
        print(new)
-       new2= nums[-3:]
+       new2= nums[-k:]
        print(new2)
        new2.extend(new)
       
