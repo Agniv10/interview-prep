@@ -1,0 +1,81 @@
+-----Deloitte interview QS-------------
+
+what is the loss fn in svm?
+what is hinge loss?
+binary and categorical cross entropy
+bleu score and rogue score, bertscore
+metrics of regression
+Bert architecture/ how to Bert works internally
+how to check if two distribution is similar 
+how to keep track of incoming data quality in production
+
+Qs: Longest substring in palindrome:
+text='madam'
+longest_subs=''
+for i in range(0,len(text)):
+  for j in range(i+1,len(text)+1):
+    substring = text[i:j]
+    if substring == substring[::-1] and len(substring)>len(longest_subs):
+      longest_subs = substring
+
+Qs: Suppose we are given an array of n integers which represent the value of some stock over  time. Assuming you are allowed to buy the stock exactly once and sell the stock once, what is  the maximum profit you can make? Can you write an algorithm that takes in an array of  values and returns the maximum profit? 
+For example, if you are given the following array: 
+[2, 7, 1, 8, 2, 8, 14, 25, 14, 0, 4, 5]
+
+
+1 def version1_SellProfit(n): 
+2 max_profit = 0; 
+3 for i in range(0, len(n)): 
+4 for j in range (i + 1, len(n)): 
+5 max_profit = max(max_profit, n[j] - n[i]) 
+6 
+7 return max_profit
+
+Qs: Given a paragraph, find the top_n words excluding the stopwords.
+with open(file_name, 'r') as file:
+        # read the file and split it into words
+        words = file.read().lower().split()
+        
+        # remove stopwords from the list of words
+        words = [word for word in words if word not in stop_words]
+        
+        # count the frequency of each word
+        word_counts = Counter(words)
+        
+        # return the top n most frequent words
+        return word_counts.most_common(n)
+
+
+Qs: i have a dataframe df, one col is quantity, i want to filter data where quantity is greater than avg of quantity
+
+# Create example DataFrame
+df = pd.DataFrame({'quantity': [3, 5, 8, 2, 4, 9, 1, 6, 7]})
+
+# Calculate the average quantity
+avg_quantity = df['quantity'].mean()
+
+# Filter the DataFrame where quantity is greater than the average quantity
+filtered_df = df[df['quantity'] > avg_quantity]
+
+# Print the filtered DataFrame
+print(filtered_df)
+
+ERM 
+Difference between encoders and decoders in transformers
+Can we generate texts using Bert models/ architecture?
+What is self-attention?
+What is Query, value terms wrt self-attention in bert?
+What is masked language modeling?
+When do we use Random forest?
+What is overfitting
+You have a list of random numbers, find 2nd largest number without sorting
+
+
+
+
+
+
+
+
+
+
