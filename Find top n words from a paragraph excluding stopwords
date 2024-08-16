@@ -1,0 +1,15 @@
+Qs: Given a paragraph, find the top_n words excluding the stopwords.
+with open(file_name, 'r') as file:
+        # read the file and split it into words
+        words = file.read().lower().split()
+        
+        # remove stopwords from the list of words
+        words = [word for word in words if word not in stop_words]
+        
+        # count the frequency of each word
+        word_counts = Counter(words)
+        
+        # return the top n most frequent words
+        return word_counts.most_common(n)
+
+
