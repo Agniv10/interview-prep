@@ -65,8 +65,19 @@ Difference between encoders and decoders in transformers
 Can we generate texts using Bert models/ architecture?
 What is self-attention?
 What is Query, value terms wrt self-attention in bert?
-What is masked language modeling?
+Qs: What is masked language modeling?
+Ans: Masked language modeling predicts a masked token in a sequence, and the model can attend to tokens bidirectionally. This means the model has full access to the tokens on the left and right. Masked language modeling is great for tasks that require a good contextual understanding of an entire sequence. BERT is an example of a masked language model.
 When do we use Random forest?
+Ans: Random Forest is a popular machine learning algorithm, especially when dealing with:
+
+1. **High-dimensional data**: With a large number of features, Random Forest can handle the curse of dimensionality better than other methods, such as decision trees or linear models.
+2. **Complex relationships**: Random Forest can capture non-linear relationships between variables, making it suitable for problems where relationships are complex and non-linear.
+3. **Noise and outliers**: Random Forest is robust to noise and outliers in the data, which makes it a good choice when dealing with datasets that are prone to noise or outliers.
+4. **Many classes**: Random Forest is particularly effective when dealing with multiclass classification problems, where the number of classes is large.
+
+Random Forest can handle both discrete and ordinal data, and it is particularly effective when dealing with:
+1. **Discrete data**: Random Forest can handle discrete data, such as categorical features, without requiring any additional processing.
+2. **Ordinal data**: Random Forest can also handle ordinal data, where the order of the categories is important, by using a technique called "ordinal encoding".
 What is overfitting
 You have a list of random numbers, find 2nd largest number without sorting
 
