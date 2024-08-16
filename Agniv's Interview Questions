@@ -81,6 +81,12 @@ Random Forest can handle both discrete and ordinal data, and it is particularly 
 What is overfitting
 You have a list of random numbers, find 2nd largest number without sorting
 
+Question: What is positional encoding, why is it needed?
+Solution: https://kazemnejad.com/blog/transformer_architecture_positional_encoding/
+
+Question: What is self attention?
+Solution: https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
 
 
 
