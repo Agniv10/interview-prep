@@ -1,0 +1,13 @@
+Qs: i have a dataframe df, one col is quantity, i want to filter data where quantity is greater than avg of quantity
+
+# Create example DataFrame
+df = pd.DataFrame({'quantity': [3, 5, 8, 2, 4, 9, 1, 6, 7]})
+
+# Calculate the average quantity
+avg_quantity = df['quantity'].mean()
+
+# Filter the DataFrame where quantity is greater than the average quantity
+filtered_df = df[df['quantity'] > avg_quantity]
+
+# Print the filtered DataFrame
+print(filtered_df)
