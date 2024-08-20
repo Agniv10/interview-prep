@@ -1,0 +1,8 @@
+def reverse_list_stack(lst):
+    #using a list as a stack
+    reversed_lst = []
+    while lst:
+        reversed_lst.append(lst.pop())
+    return reversed_lst
+
+reverse_list_stack([1,2,3,4])
