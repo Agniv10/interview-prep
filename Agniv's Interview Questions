@@ -60,13 +60,17 @@ filtered_df = df[df['quantity'] > avg_quantity]
 # Print the filtered DataFrame
 print(filtered_df)
 
-ERM 
+COMPANY: ERM 
 Difference between encoders and decoders in transformers
 Can we generate texts using Bert models/ architecture?
 What is self-attention?
 What is Query, value terms wrt self-attention in bert?
+
+
 Qs: What is masked language modeling?
 Ans: Masked language modeling predicts a masked token in a sequence, and the model can attend to tokens bidirectionally. This means the model has full access to the tokens on the left and right. Masked language modeling is great for tasks that require a good contextual understanding of an entire sequence. BERT is an example of a masked language model.
+
+
 When do we use Random forest?
 Ans: Random Forest is a popular machine learning algorithm, especially when dealing with:
 
@@ -88,8 +92,46 @@ Question: What is self attention?
 Solution: https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
 
 
+Question: what is warmup in deep learning?
+Answer: During the warmup phase, the learning rate is set to a very low value, typically a small fraction of the final learning rate. This allows the model to learn the simplest patterns in the data, such as the overall shape of the data distribution, without being overwhelmed by the noise and complexity of the data.
+
+As the model becomes more confident in its understanding of the data, the learning rate is gradually increased, typically using a schedule such as a linear increase or a cosine annealing schedule. This allows the model to learn more complex patterns and relationships in the data, and to refine its understanding of the data distribution.
+Here are some benefits of warmup in deep learning:
+
+1. **Improved convergence**: Warmup helps the model to converge faster and more accurately by allowing it to learn the simplest patterns in the data before increasing the learning rate.
+2. **Reduced overfitting**: By gradually increasing the learning rate, warmup helps to prevent overfitting by allowing the model to learn more complex patterns and relationships in the data.
+3. **Faster training**: Warmup can help to speed up the training process by allowing the model to learn the simplest patterns in the data quickly and accurately.
+
+Some common warmup techniques used in deep learning include:
+
+1. **Linear warmup**: The learning rate is increased linearly from a starting value to a final value over a specified number of iterations.
+2. **Cosine annealing warmup**: The learning rate is increased using a cosine annealing schedule, which helps to avoid overshooting and oscillations.
+3. **Warmup with a fixed number of iterations**: The model is trained for a fixed number of iterations at a low learning rate before increasing the learning rate.
 
 
+WHAT IS BACKPROPAGATION? url: https://rentry.org/llm-training
+In a model, we have many layers that work together to process our data. Think of these layers as interconnected building blocks. When we pass our data through the model, it goes through each of these layers, step by step, in a forward direction. As it travels through the layers, the model makes predictions for the data.
+
+After the data has gone through all the layers and the model has made predictions, we need to measure how accurate or "right" the model's predictions are. We do this by calculating a value called the "loss." The loss tells us how much the model deviates from the correct answers for each data sample.
+
+Now comes the interesting part. We want our model to learn from its mistakes and improve its predictions. To do this, we need to figure out how the loss value changes when we make small adjustments to the model's internal parameters, like the weights and biases.
+
+This is where the concept of gradients comes in. Gradients help us understand how the loss value changes with respect to each model parameter. 
+
+Once we have the gradients, we can use them to update the model's parameters and make them better. We choose an optimizer, which is like a special algorithm responsible for guiding these parameter updates. The optimizer takes into account the gradients, as well as other factors like the learning rate (how big the updates should be) and momentums (which help with the speed and stability of learning).
+
+
+WHAT IS BATCH AND EPOCHS IN DL?
+Assume you have a dataset with 200 samples (rows or sequences of data) and you choose a batch size of 5 and 1,000 epochs. This means that the dataset will be divided into 40 batches, each with five samples. The model weights will be updated after each batch of five samples. This will also mean that one epoch will involve 40 batches or 40 updates to the model.
+With 1,000 epochs, the model will be exposed to the entire dataset 1,000 times. That is a total of 40,000 batches during the entire training process.
+
+
+WHAT IS GRADIENT ACCUMULATION?
+
+Higher batch sizes result in higher memory consumption. Gradient accumulation aims to fix this.
+Gradient accumulation is a mechanism to split the batch of samples - used for training your model - into several mini-batches of samples that will be run sequentially.
+To understand gradient accumulation, let's think about splitting a batch of samples into smaller groups called mini-batches. In each step, we process one of these mini-batches without updating the model's variables. This means that the model uses the same set of variables for all the mini-batches.
+By not updating the variables during these steps, we ensure that the gradients and updates calculated for each mini-batch are the same as if we were using the original full batch. In other words, we guarantee that the sum of the gradients obtained from all the mini-batches is equal to the gradients obtained from the full batch.
 
 
 
