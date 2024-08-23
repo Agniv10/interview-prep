@@ -1,0 +1,9 @@
+def remove_duplicates(sentence):
+    words = sentence.split()
+    unique_words = list(set(words))
+    return ' '.join(sorted(unique_words))
+
+sentence = "Hello World, hello again, hello everyone"
+print(remove_duplicates(sentence))
+
+o/p: Hello World, again, everyone hello
