@@ -132,6 +132,15 @@ Gradient accumulation is a mechanism to split the batch of samples - used for tr
 To understand gradient accumulation, let's think about splitting a batch of samples into smaller groups called mini-batches. In each step, we process one of these mini-batches without updating the model's variables. This means that the model uses the same set of variables for all the mini-batches.
 By not updating the variables during these steps, we ensure that the gradients and updates calculated for each mini-batch are the same as if we were using the original full batch. In other words, we guarantee that the sum of the gradients obtained from all the mini-batches is equal to the gradients obtained from the full batch.
 
+What two models are compared while calculating R2 in a regression setup?
+When calculating the R² (coefficient of determination) in a regression setup, two models are compared:
+
+1. **The Regression Model (Fitted Model):** This is the model you've trained on your data, which includes the predictors (independent variables) to predict the response (dependent variable). It represents the model you’re evaluating.
+
+2. **The Baseline Model (Mean Model):** This model predicts the mean of the dependent variable for all observations, regardless of the input features. It's a simple model that doesn't use any predictors and serves as a benchmark.
+
+R² essentially measures how well your regression model performs compared to this baseline model. If your model is no better than simply predicting the mean of the dependent variable, R² will be close to 0. If your model perfectly predicts the dependent variable, R² will be 1.
+
 
 
 
