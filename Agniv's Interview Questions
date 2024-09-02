@@ -133,6 +133,17 @@ To understand gradient accumulation, let's think about splitting a batch of samp
 By not updating the variables during these steps, we ensure that the gradients and updates calculated for each mini-batch are the same as if we were using the original full batch. In other words, we guarantee that the sum of the gradients obtained from all the mini-batches is equal to the gradients obtained from the full batch.
 
 What two models are compared while calculating R2 in a regression setup?
+It is a scale invariant statistic that gives the amount of variance in the target variable explained by the lin reg model.
+r2  = (tss-rss)/tss
+    = explained variation/total variation
+    = 1-(tss/rss)
+rss= residual sum of squares= SUM(y-yi)^2
+rss gives the total variation of target variable that is not explained by model.
+tss = total sum of squares
+tss = SUM(y-Ymean)^2 
+tss gives the total variation of target variable
+
+    
 When calculating the R² (coefficient of determination) in a regression setup, two models are compared:
 
 1. **The Regression Model (Fitted Model):** This is the model you've trained on your data, which includes the predictors (independent variables) to predict the response (dependent variable). It represents the model you’re evaluating.
@@ -142,7 +153,100 @@ When calculating the R² (coefficient of determination) in a regression setup, t
 R² essentially measures how well your regression model performs compared to this baseline model. If your model is no better than simply predicting the mean of the dependent variable, R² will be close to 0. If your model perfectly predicts the dependent variable, R² will be 1.
 
 
+HOW DO YOU EVALUATE CLUSTERING ALGORITHMS?
+1. **Internal Indexes**: These methods evaluate the clustering quality based on the data itself, without considering any external information. Some popular internal indexes are:
+	* Silhouette Coefficient: measures the distance between each point and the nearest cluster center, and compares it to the distance to the next nearest cluster center.
+	* Calinski-Harabasz Index: measures the ratio of between-cluster variance to within-cluster variance.
+  * Dunn Index
 
 
+GINI IMPURITY:
+**Gini Coefficient in Decision Trees:**
+
+* Measures the impurity of a node in a decision tree
+* Used to select the best feature to split at a node
+* Range: [0, 0.5]
+* 0: Node is pure (all instances have the same class label)
+* 0.5: Node is maximally impure (instances have a uniform distribution of class labels)
+
+In decision trees, the Gini coefficient is used to evaluate the impurity of a node and determine the best feature to split on. A lower Gini coefficient indicates a more pure node, while a higher Gini coefficient indicates a more impure node.
 
 
+ACTIVATION FUNCTIONS
+
+Sigmoid Activation Function
+Definition:
+
+The sigmoid function transforms input values into a range between 0 and 1. Its mathematical expression is:
+sigmoid
+
+sigmoid(x)= 1/(1+e^-x)
+ 
+When and Where It’s Needed:
+
+Use Case: Primarily used in binary classification tasks.
+Location: Often utilized in the output layer of a neural network designed for binary outcomes.
+Why It’s Needed:
+
+Probability Interpretation: Outputs can be interpreted as probabilities, making it suitable for binary classification.
+Smooth Gradient: The sigmoid function is smooth and differentiable, which aids in the optimization process during training.
+Limitation: It suffers from the vanishing gradient problem for extreme input values, making it less effective in deeper networks.
+ReLU Activation Function
+Definition:
+
+ReLU (Rectified Linear Unit) outputs the input directly if it is positive; otherwise, it outputs zero. Its formula is:
+
+ReLU(x)=max(0,x)
+When and Where It’s Needed:
+
+Use Case: Commonly used in hidden layers of deep neural networks.
+Location: Widely adopted in convolutional neural networks (CNNs) and feedforward networks.
+Why It’s Needed:
+
+Efficiency: Computationally efficient and helps in speeding up training.
+Non-Linearity: Introduces non-linearity into the model, allowing it to learn complex patterns.
+Avoids Vanishing Gradients: Helps mitigate the vanishing gradient problem, promoting better learning in deeper networks.
+Limitation: Can lead to "dying ReLUs," where neurons become inactive and always output zero.
+Leaky ReLU Activation Function
+Definition:
+
+Leaky ReLU is a variation of ReLU that allows a small, non-zero gradient when the input is negative. Its formula is:
+
+Leaky ReLU(x)={ 
+x     if x>0
+αx    if x≤0
+​
+where α is a small constant (typically around 0.01).
+
+When and Where It’s Needed:
+
+Use Case: Useful in situations where the standard ReLU might fail, particularly in deeper networks.
+Location: Often implemented in hidden layers of deep learning models.
+Why It’s Needed:
+
+Prevents Dying ReLUs: Allows a small gradient for negative inputs, preventing neurons from becoming inactive.
+Retains Information: Helps the network learn from all inputs, including those that are negative, which can enhance model performance.
+Balance: Offers a balance between the advantages of ReLU and the need to keep neurons active during training.
+
+Softmax Activation Function
+Definition:
+The softmax function is an activation function that converts a vector of raw scores (logits) into probabilities. It ensures that the output values are between 0 and 1 and that they sum up to 1. The formula for the softmax function for a vector 
+
+For relu, all negative outputs gets truncated to 0, which causes instability in network. So we use softmax, that takes a negative value and transforms it to small positve value by getting the exponential of the negative number. then it normalizes all the outputs to have probability distribution for all classes.
+
+When and Where It’s Needed:
+
+Use Case: Commonly used in multi-class classification problems.
+Location: Typically employed in the output layer of neural networks when you want to classify inputs into multiple classes.
+Why It’s Needed:
+
+Probability Distribution: Softmax transforms the raw scores into a probability distribution, allowing for a clear interpretation of the model's outputs as probabilities of each class.
+Multi-Class Classification: It allows the model to handle multiple classes effectively by providing a way to select the class with the highest probability.
+Differentiability: The softmax function is differentiable, which is essential for backpropagation during training.
+Normalization: It normalizes the output, preventing issues that can arise from using raw logits directly, such as numerical instability.
+
+
+Summary
+Sigmoid: Ideal for binary outputs; smooth and interpretable as probabilities, but can face vanishing gradient issues.
+ReLU: Efficient for hidden layers, introduces non-linearity, and helps avoid vanishing gradients but can lead to dead neurons.
+Leaky ReLU: Addresses the dying ReLU problem by allowing a small gradient for negative inputs, enhancing learning in deeper networks.
