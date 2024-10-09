@@ -250,3 +250,28 @@ Summary
 Sigmoid: Ideal for binary outputs; smooth and interpretable as probabilities, but can face vanishing gradient issues.
 ReLU: Efficient for hidden layers, introduces non-linearity, and helps avoid vanishing gradients but can lead to dead neurons.
 Leaky ReLU: Addresses the dying ReLU problem by allowing a small gradient for negative inputs, enhancing learning in deeper networks.
+
+
+
+ERICSSON INTERVIEW
+1. what are the blocks of an transformer?
+2. what is the first block of it? Ans: embedding layer/block
+3. How embeddings are generated in the 1st layer?
+4. how positional encodings work? formula for sinusoidal and cosine in positional encodings?
+5. when sine and when cosine functions are used in positional encoding ?
+6. Attention mechanism: how it works with mathematics
+7. Difference between flan t5 and t5?
+8. Difference between rank and rerank
+9. what is instance method/ class method/ static method?
+10. what is f-beta in ML?
+11. How to reduce overfitting in Tree based models?
+12. 	Table A column A : 1,2,3,4 
+	Table B column A : 1,2,3,4,4,3,2,1
+what is the result of inner join
+13. s='abcd' leftshift=2 output='cdab'
+Solution: def myfunc(st, n):
+	    extracted_chars=st[:n]
+	    remaining_chrs=st[n:]
+	    res = remaining_chrs+extracted_chars
+	    return res
+myfunc("abcd",3)
