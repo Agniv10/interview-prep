@@ -275,3 +275,10 @@ Solution: def myfunc(st, n):
 	    res = remaining_chrs+extracted_chars
 	    return res
 myfunc("abcd",3)
+
+
+Second Round:
+multi level inheritance, multiple inheritance, pyc file in python, immutability in py, 
+why dict keys are immutable, difference between encoder and decoder, garbage collector, 
+decorators, when decorators are used, exception handling in details, how multiple exceptions are handled based on specificity, 
+if i have 100 gb of data to build a ML model but I have only 20 gb of ram to available, how do i build the model, dockerisation in deployment
