@@ -1,0 +1,19 @@
+Im Agniv, I hail from Kolkata ,the eastern part of India.
+I carry almost 8 years of experience in IT and have 6.5 years of experience wokring as a Data Scientist. 
+Over this course of 8 years I have worked across a number of companies, handled a number of clients.
+I have hands on experience in building end to end data science applications using machine learning, deep learning, python.
+Most of the major projects I have worked in were NLP ie natural  language processing tasks, and that is also my core strength or expertise.
+I have experience in building data science APIs using FastAPI, Flask.
+I have been working on the generative ai spce for the last 2.5 years where I was leading the gen ai initiatives for the world bank group and had a few gen ai use cases productionised on Azure using Azure functions and azure durable functions. 
+
+
+The project I have worked on was a Gen ai based question answering solution.
+I have been working as the off shore lead data scientist where in I was leading a team of 4 other data scientists.
+The problem in hand was a use case from the corporate and gov team where they they were manually analysing various companies specifically where the WBG has stakes in. 
+The question next is why did they analyse, this task was done to highlight any risks, any red flags from a esg point of view about the company that might be of interest to the portfolio managers.
+For carrying out this tasks, a group of SMEs had curated a questionnaire of very very specific questions. 
+The goal for the data science team was to answer these questions from various initernal documents and also from the SME uploaded company documents.
+We have implemented a enterprise grade Gen ai solution for completely automating this task where in our Azure hosted open ai models would scrape thru all the neccessary documents and find relevant answers for the questions. We have built a solution where we have utilised a number of Azure services like Azure doc intelligence to extarct data out of these documents, utilised embedding models like ada and BGE hosted on azure and databricks, have used azure ai search which is vector database service for indexing the docs and finally used open ai model for question answering.
+We have created a evaluation pipleine as well wherein we have used a open source framework called ragas to evaluate our rag pipeline and also our model performance.
+All these components had been wrapped into a number of APIs with the help of Fastapi. And finally the solution is deployed on Azure as azure functions and azure durable functions which is a serverless service.
+This solution had been integrated into WBGs award wining AI product called Malena.
