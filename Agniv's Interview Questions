@@ -284,3 +284,31 @@ decorators, when decorators are used, exception handling in details, how multipl
 if i have 100 gb of data to build a ML model but I have only 20 gb of ram to available, how do i build the model, dockerisation in deployment
 
 https://www.linkedin.com/posts/bastyajayshenoy_pythonquestions-ugcPost-7321408517070807042-7Y-p?utm_source=share&utm_medium=member_desktop&rcm=ACoAABghYAcBdpTbsvG9FLLrkwhURUPhJo5fmV4
+
+Vitusa interview from linkedin
+🔹 Virtusa Interview Questions
+
+Project & ML Fundamentals
+• Can you explain your project?
+• How did you perform feature engineering?
+• How did you do hyperparameter tuning?
+• What is reranking?
+• What are the parameters of Random Forest and LightGBM?
+
+RAG / GenAI
+• How do you handle structured and unstructured data in RAG?
+• Can you explain RAG from a developer’s perspective (end-to-end flow)?
+• What are the accuracy metrics of RAG?
+• Suppose you have 15k documents related to a query — how do you decide the exact match? ( expecting an indexing algorithm)
+• What is a vector database and why do you use it?
+• Why did you use FAISS?
+• Can you explain chunking strategies?
+• Can you explain text splitting (text splitter, document loader)?
+• Explain LangChain.
+
+Data Handling & Programming
+• How will you read a CSV file?
+• How will you merge two lists?
+• Why did you store documents in a database?
+• Reverse a string
+• Explain an indexing algorithm
