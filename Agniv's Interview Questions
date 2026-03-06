@@ -312,3 +312,17 @@ Data Handling & Programming
 • Why did you store documents in a database?
 • Reverse a string
 • Explain an indexing algorithm
+
+INTERVIEW QUESTION----
+what is runnablepassthrough, runnablesequence, runnablelambda?
+2.expalin RAGA?
+3. Homogeneous corpus?
+4.explain Biencoder and cross encoder along with differences?
+5.how to evaluate RAG when we don't have ground truths?
+6. Difference btw TFIDF and BM25?
+7. explain about HNSW indexing?
+8. what all a standard prompt include?
+9. components of RAG?
+10. what are few shots?
+11. python programming coding question
+i/p : {a:1,b:{d :3,e:5}}  o/p:{a:1,b.d:3,b.e:5}
