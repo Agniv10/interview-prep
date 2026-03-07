@@ -326,3 +326,19 @@ what is runnablepassthrough, runnablesequence, runnablelambda?
 10. what are few shots?
 11. python programming coding question
 i/p : {a:1,b:{d :3,e:5}}  o/p:{a:1,b.d:3,b.e:5}
+
+
+Interview questions for GenAI engineer :
+Questions:
+1.python coding question:
+i/p: [1,2,[3,[4,[6,8],5],0],4] o/p:[1,2,3,4,6,8,5,0,4]
+2. There is one policy document that keeps on changing every quarter what do you think suits to solve this use case?
+3. What is the difference between Normal RAG and adaptive RAG?
+4. In agent how the information is being transferred btw one node to other?
+5. How to get structured response from LLM?
+6.what are advantages of FastAPI?
+7. What does decorator do?
+8. How does similarity search happens in vectordb?
+9. what is temperature, topP, topK?
+10. what are the different types of chunking strategies?
+11. I have a prompt which is exceeding context size of the LLM what to do in this case to give a prompt to LLM
