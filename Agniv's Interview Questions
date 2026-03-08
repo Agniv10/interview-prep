@@ -342,3 +342,18 @@ i/p: [1,2,[3,[4,[6,8],5],0],4] o/p:[1,2,3,4,6,8,5,0,4]
 9. what is temperature, topP, topK?
 10. what are the different types of chunking strategies?
 11. I have a prompt which is exceeding context size of the LLM what to do in this case to give a prompt to LLM
+
+
+
+nterview experience for GenAI engineer
+Questions:
+1. python coding question 
+i/p : ['cat','act','eat','ate']   o/p : [['cat','act'],['eat','ate']]
+2. i have a medical document which has images,text,tables data in it need to develop a Q&A bot for this what would be ur approach. explain step by step.
+3. I have a rest service api need to integrate as a tool in agent how would you do it.
+4. Difference between corrective RAG and agentic RAG?
+5. How to evaluate RAG?
+6. Why only cosine similarity is being used in vectorDB instead of euclidean or something else?
+7. What type of chunking strategy used for chunking python code.
+8. Explain the transformer architecture?
+9. When to use GPT and BERT?
