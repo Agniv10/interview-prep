@@ -356,4 +356,25 @@ i/p : ['cat','act','eat','ate']   o/p : [['cat','act'],['eat','ate']]
 6. Why only cosine similarity is being used in vectorDB instead of euclidean or something else?
 7. What type of chunking strategy used for chunking python code.
 8. Explain the transformer architecture?
-9. When to use GPT and BERT?
+9. When to use GPT and bert?
+
+
+
+GenAI interview experience 
+
+questions:
+
+1. what are LLMs?
+2. python coding question on three sum in list
+3. what is pretaining and fine-tuning?
+4. tell me the steps involved in pretaining life cycle?
+5. what is instruction tuning?
+6. what are PEFT techniques?
+7. explain LoRA and QLoRA and  4bit representation? what are singed and unsigned ?
+8. RAG pipeline, Multimodal RAG , multivector retriever explain each..
+9. What is padding?
+10. Compare FastAPI vs Flask
+
+
+
+
