@@ -1,9 +1,11 @@
-def remove_duplicates(sentence):
-    words = sentence.split()
-    unique_words = list(set(words))
-    return ' '.join(sorted(unique_words))
+def remove_duplicate_words(sentence):
+    seen = set()
+    result = []
+    for word in sentence.split():
+        if word not in seen:
+            seen.add(word)
+            result.append(word)
+    return " ".join(result)
 
-sentence = "Hello World, hello again, hello everyone"
-print(remove_duplicates(sentence))
-
-o/p: Hello World, again, everyone hello
+text = "this is is a a test test sentence"
+print(remove_duplicate_words(text))   # this is a test sentence
