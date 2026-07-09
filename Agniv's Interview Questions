@@ -23,12 +23,27 @@ For example, if you are given the following array:
 [2, 7, 1, 8, 2, 8, 14, 25, 14, 0, 4, 5]
 
 1 def version1_SellProfit(n): 
-2 max_profit = 0; 
-3 for i in range(0, len(n)): 
-4 for j in range (i + 1, len(n)): 
-5 max_profit = max(max_profit, n[j] - n[i]) 
+2 	max_profit = 0; 
+3 	for i in range(0, len(n)): 
+4 		for j in range (i + 1, len(n)): 
+5 			max_profit = max(max_profit, n[j] - n[i]) 
 6 
 7 return max_profit
+
+def max_profit(prices):
+    if len(prices) < 2:
+        return 0
+
+    min_price = prices[0]  # cheapest buy point seen so far
+    max_p = 0              # best profit seen so far
+
+    for price in prices[1:]:
+        max_p = max(max_p, price - min_price)  # sell today?
+        min_price = min(min_price, price)       # new buy point?
+
+    return max_p
+
+
 
 Qs: Given a paragraph, find the top_n words excluding the stopwords.
 with open(file_name, 'r') as file:
@@ -92,7 +107,8 @@ Solution: https://jalammar.github.io/visualizing-neural-machine-translation-mech
 
 
 Question: what is warmup in deep learning?
-Answer: During the warmup phase, the learning rate is set to a very low value, typically a small fraction of the final learning rate. This allows the model to learn the simplest patterns in the data, such as the overall shape of the data distribution, without being overwhelmed by the noise and complexity of the data.
+Answer: During the warmup phase, the learning rate is set to a very low value, typically a small fraction of the final learning rate. 
+This allows the model to learn the simplest patterns in the data, such as the overall shape of the data distribution, without being overwhelmed by the noise and complexity of the data.
 
 As the model becomes more confident in its understanding of the data, the learning rate is gradually increased, typically using a schedule such as a linear increase or a cosine annealing schedule. This allows the model to learn more complex patterns and relationships in the data, and to refine its understanding of the data distribution.
 Here are some benefits of warmup in deep learning:
@@ -375,6 +391,26 @@ questions:
 9. What is padding?
 10. Compare FastAPI vs Flask
 
+Bi-encoder — no interaction
+Two completely independent BERT towers run in parallel. The query gets encoded to one 768d vector, the document gets encoded to another, and the only "meeting" happens via cosine similarity at the very end. Because the document vectors can be computed offline and stored in a FAISS index, you get millisecond ANN (approximate nearest neighbour) search across millions of docs at query time. The cost: the encoder never saw the document while processing the query, so it can't catch subtle relevance signals like negations or specificity mismatches.
+
+Cross-encoder — full interaction
+The query and document are concatenated into a single input sequence before BERT ever runs. Every query token can attend to every document token through self-attention. This is the most powerful setup — the model sees the full context — but it means you can't pre-compute anything: you need a fresh forward pass for every (query, document) pair. This makes it O(n) at query time, which rules it out for first-stage retrieval over large indexes. This is why it's always a re-ranker, not a retriever.
+
+ColBERT — late interaction (the clever middle ground)
+ColBERT's key insight: you don't need full cross-attention to get most of the benefit. The name says it all — Contextualized Late Interaction over BERT:
+
+Contextualized: uses BERT, so each token's embedding is context-aware (not static)
+Late: the interaction between query and document happens after encoding (at scoring time), not during
+Interaction: it's at the token level — every query token "talks to" every document token — not just single vectors
+
+The scoring formula is s = Σᵢ maxⱼ(qᵢ · dⱼ): for each query token embedding, find the document token it's most similar to, then sum those maxes. This is called MaxSim.
+Why is this smart? Because document token embeddings can still be pre-computed offline (just like bi-encoder doc vectors), stored in an index, and retrieved without running BERT at query time. The MaxSim computation is just dot products over pre-stored vectors — far cheaper than a full BERT forward pass.
+The catch: storing token matrices instead of single vectors blows up storage. A 128-token document at 768d = 98K floats per doc vs 768 floats for bi-encoder. That's ~128x more storage.
+ColBERTv2 fixes this with two techniques:
+
+Dimension reduction: a linear projection layer compresses each token embedding from 768d down to 128d
+Residual quantization: instead of storing the full 128d float vector, store a centroid ID (which cluster this vector belongs to) plus a small residual in a few bits. This compresses each token embedding down to ~30-50 bytes instead of 512 bytes (128 × 4 bytes). A 128-token document goes from ~64KB to ~4-6KB — within the same ballpark as dense retrieval
 
 
 
