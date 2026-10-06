@@ -16,26 +16,16 @@ Input: nums = [3,2,4], target = 6
 Output: [1,2]
 """
 
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        numMap = {}
-        n = len(nums)
+def two_sum(nums, target):
+    seen = {}  # value -> index
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return [seen[complement], i]
+        seen[num] = i
+    return []  # no solution found (shouldn't happen per problem constraints)
 
-        # Build the hash table
-        for i in range(n):
-            numMap[nums[i]] = i
 
-        # Find the complement
-        for i in range(n):
-            complement = target - nums[i]
-            if complement in numMap and numMap[complement] != i:
-                return [i, numMap[complement]]
-
-        return []  # No solution found
-
-Solution 2:
-
-for i in range(0,len(nums):
-    for j in range(i+1, len(nums)):
-        if nums[i] == nums[j]:
-            print (i, j)
+# Example usage
+print(two_sum([2, 7, 11, 15], 9))  # [0, 1]
+print(two_sum([3, 2, 4], 6))       # [1, 2]
